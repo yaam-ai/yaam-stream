@@ -171,6 +171,7 @@ export interface StreamingConfig {
   mode?: StreamMode;
   port?: number;
   host?: string;
+  path?: string;
   cors?: boolean;
   compression?: boolean;
   authentication?: {
@@ -279,6 +280,8 @@ export interface DocumentData {
     created?: Date;
     modified?: Date;
     generator?: string;
+    processedAt?: string;
+    [key: string]: any;
   };
 }
 
@@ -337,12 +340,12 @@ export interface ContentSection extends BaseSection {
 /**
  * Highlights section
  */
-export interface HighlightsSection extends BaseSection {
+export interface HighlightsSection extends Omit<BaseSection, 'layout'> {
   type: 'highlights';
   title: string;
   subtitle?: string;
   items: HighlightItem[];
-  layout?: 'grid' | 'list' | 'cards';
+  layout?: LayoutConfig | 'grid' | 'list' | 'cards';
 }
 
 /**
@@ -564,7 +567,10 @@ export type StreamEvent =
   | 'progress'
   | 'complete'
   | 'error'
-  | 'heartbeat';
+  | 'heartbeat'
+  | 'pong'
+  | 'subscribed'
+  | 'unsubscribed';
 
 /**
  * Stream message structure
@@ -617,3 +623,116 @@ export interface ClientInfo {
   connectedAt: Date;
   subscriptions: string[];
 }
+
+/**
+ * Error codes
+ */
+export const ERROR_CODES = {
+  VALIDATION_ERROR: 'VALIDATION_ERROR',
+  GENERATION_ERROR: 'GENERATION_ERROR',
+  EXPORT_ERROR: 'EXPORT_ERROR',
+  AI_ERROR: 'AI_ERROR',
+  STREAM_ERROR: 'STREAM_ERROR',
+  NETWORK_ERROR: 'NETWORK_ERROR',
+  SECURITY_ERROR: 'SECURITY_ERROR',
+  CONFIG_ERROR: 'CONFIG_ERROR',
+  FILE_ERROR: 'FILE_ERROR',
+  TIMEOUT_ERROR: 'TIMEOUT_ERROR'
+} as const;
+
+/**
+ * Success codes
+ */
+export const SUCCESS_CODES = {
+  GENERATION_COMPLETE: 'GENERATION_COMPLETE',
+  EXPORT_COMPLETE: 'EXPORT_COMPLETE',
+  STREAM_COMPLETE: 'STREAM_COMPLETE',
+  AI_COMPLETE: 'AI_COMPLETE',
+  VALIDATION_SUCCESS: 'VALIDATION_SUCCESS'
+} as const;
+
+/**
+ * MIME types mapping
+ */
+export const MIME_TYPES: Record<ExportFormat, string> = {
+  html: 'text/html',
+  pdf: 'application/pdf',
+  pptx: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+  latex: 'application/x-latex',
+  docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  markdown: 'text/markdown'
+};
+
+/**
+ * File extensions mapping
+ */
+export const FILE_EXTENSIONS: Record<ExportFormat, string> = {
+  html: '.html',
+  pdf: '.pdf',
+  pptx: '.pptx',
+  latex: '.tex',
+  docx: '.docx',
+  markdown: '.md'
+};
+
+/**
+ * Default animation speed (ms per character)
+ */
+export const DEFAULT_ANIMATION_SPEED = 50;
+
+/**
+ * Default stream port
+ */
+export const DEFAULT_STREAM_PORT = 3000;
+
+/**
+ * Default export quality
+ */
+export const DEFAULT_EXPORT_QUALITY: QualityLevel = 'print';
+
+/**
+ * Validation patterns
+ */
+export const VALIDATION_PATTERNS = {
+  URL: /^https?:\/\/.+/,
+  EMAIL: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+  HEX_COLOR: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/,
+  API_KEY: /^[A-Za-z0-9_-]+$/
+} as const;
+
+/**
+ * Supported export formats
+ */
+export const SUPPORTED_FORMATS: ExportFormat[] = ['html', 'pdf', 'pptx', 'latex', 'docx', 'markdown'];
+
+/**
+ * Supported themes
+ */
+export const SUPPORTED_THEMES: ThemeName[] = ['golden', 'corporate', 'modern', 'dark', 'minimal', 'elegant'];
+
+/**
+ * Supported AI providers
+ */
+export const SUPPORTED_AI_PROVIDERS: AIProvider[] = ['claude', 'openai', 'deepseek', 'anthropic', 'custom'];
+
+/**
+ * Theme defaults
+ */
+export const THEME_DEFAULTS = {
+  colors: {
+    primary: '#1e3a8a',
+    secondary: '#64748b',
+    accent: '#f59e0b',
+    background: '#ffffff',
+    text: '#1f2937'
+  },
+  fonts: {
+    heading: 'Georgia, serif',
+    body: 'Arial, sans-serif',
+    code: 'Courier New, monospace'
+  },
+  spacing: {
+    unit: 8,
+    scale: 1.5
+  }
+} as const;

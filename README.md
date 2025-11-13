@@ -591,7 +591,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **GitHub Issues** - [Report bugs and feature requests](https://github.com/claudisiar/yaam-stream/issues)
 - **Documentation** - [Full API documentation](https://yaam-stream-docs.example.com)
 - **Discord Community** - [Join our Discord server](https://discord.gg/yaam-stream)
-- **Email** - support@yaam-stream.com
+- **Email** - support@contact@yaam.ai
 
 ---
 

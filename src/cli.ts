@@ -10,7 +10,7 @@ import * as chalk from 'chalk';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as yaml from 'js-yaml';
-import * as ora from 'ora';
+import ora from 'ora';
 
 import { YaamStream } from './lib/YaamStream';
 import { 

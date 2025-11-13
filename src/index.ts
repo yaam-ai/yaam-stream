@@ -1,20 +1,17 @@
 /**
  * YAAM Stream - Professional Document Streaming Library
  * Main entry point with enhanced features
- * Version 2.0 - Top 1% Developer Package
+ * Version 3.0 - Top 1% Developer Package
  */
 
 // Core exports
 export * from './lib/YaamStream';
-export * from './lib/types';
+export * from './types';
 export * from './lib/themes';
 export * from './lib/exporters';
 export * from './lib/ai';
 export * from './lib/streaming';
 export * from './lib/plugins';
-
-// Re-export for convenience
-export { YaamStream as default } from './lib/YaamStream';
 
 // Utility exports
 export * from './lib/utils';
@@ -46,8 +43,9 @@ export type {
   GenerationStats,
   StreamMessage,
   StreamData,
-  ClientInfo
-} from './lib/types';
+  ClientInfo,
+  QualityLevel
+} from './types';
 
 // Constants
 export const SUPPORTED_FORMATS = ['html', 'pdf', 'pptx', 'latex', 'docx', 'markdown'] as const;
@@ -99,7 +97,7 @@ export const SUCCESS_CODES = {
 // Default configurations
 export const DEFAULT_ANIMATION_SPEED = 25;
 export const DEFAULT_STREAM_PORT = 3000;
-export const DEFAULT_EXPORT_QUALITY: QualityLevel = 'print';
+export const DEFAULT_EXPORT_QUALITY = 'print' as const;
 export const DEFAULT_AI_TEMPERATURE = 0.7;
 export const DEFAULT_MAX_TOKENS = 4000;
 
