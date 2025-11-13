@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAAM Stream - Professional Document Streaming Library</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .hero {
+            margin-bottom: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .feature h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .feature p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
+        .cta {
+            margin-bottom: 40px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .version {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .github-link:hover {
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                display: block;
+                margin: 10px auto;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>YAAM Stream</h1>
+            <p>Professional animated document streaming library with AI integration, multiple export formats, and premium design themes</p>
+            
+            <div class="version">
+                Version 2.0.0 • Built with TypeScript • Production Ready
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">🚀</span>
+                <h3>Real-Time Streaming</h3>
+                <p>WebSocket-based streaming with live document updates, progressive loading, and smooth animations</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">🤖</span>
+                <h3>AI Integration</h3>
+                <p>Support for Claude, ChatGPT, DeepSeek with intelligent content generation and enhancement</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">🎨</span>
+                <h3>Premium Themes</h3>
+                <p>Golden, Corporate, Modern, Dark, Minimal, and Elegant themes with professional typography</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">📊</span>
+                <h3>Multi-Format Export</h3>
+                <p>HTML, PDF, PowerPoint, LaTeX, DOCX, and Markdown with professional formatting</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">⚡</span>
+                <h3>High Performance</h3>
+                <p>Optimized rendering with caching, compression, and parallel processing for large documents</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">🔧</span>
+                <h3>Developer Friendly</h3>
+                <p>TypeScript support, comprehensive CLI, extensive configuration, and plugin architecture</p>
+            </div>
+        </div>
+        
+        <div class="cta">
+            <a href="public/demo-standalone.html" class="btn">🎯 Interactive Demo</a>
+            <a href="examples/basic-usage.js" class="btn">📚 Examples</a>
+            <a href="README.md" class="btn">📖 Documentation</a>
+        </div>
+        
+        <div class="github-link">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <a href="https://github.com/claudisiar/yaam-stream" target="_blank" style="color: inherit; text-decoration: none;">
+                View on GitHub
+            </a>
+        </div>
+    </div>
+</body>
+</html>
